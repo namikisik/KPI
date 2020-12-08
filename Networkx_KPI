@@ -1,0 +1,26 @@
+class KPI( object ):
+    def __init__( self, A, I,R, M ):
+        self.Accessibility = A
+        self.Integrity = I
+        self.Retainability = R
+        self.Mobility = M
+# Mobility Accessibility Retainability Integrity
+
+import networkx as nx
+import matplotlib.pyplot as plt
+
+G = nx.DiGraph(name = 'KPI Relation')
+#G.add_nodes_from(['A', 'I', 'R', 'M'])
+G.add_node('A', name = 'Accessibility')
+G.add_node('I', name = 'Integrity')
+G.add_node('M', name = 'Mobility')
+G.add_node('R', name = 'Retainability')
+
+#G.add_edges_from[('A', 'M'), ('R', 'M'), ('I', 'M'), ('A', 'R'), ('A', 'I'), ('R', 'I')]
+
+G.add_edges_from([('A', 'M', {'color' : 'green'}), 
+                  ('R', 'M', {'color' : 'blue'}), 
+                  ('I', 'M', {'color' : 'red'}), 
+                  ('A', 'R'), ('A', 'I'), ('R', 'I')]) 
+
+# G.out_edges(), G.in_edges(), G.out_degree(), G.in_degree()
